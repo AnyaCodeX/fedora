@@ -4,7 +4,6 @@ Some commands that i use for fedora installs on virtual machines.
 ## update
 ```
 sudo dnf update
-sudo dnf update && upgrade
 sudo dnf autoremove
 sudo dnf distro-sync
 ```
