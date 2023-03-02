@@ -57,3 +57,7 @@ libreoffice-core - Core modules for LibreOffice
 okular - A document viewer
 spectacle - Screenshot capture utility
 ```
+### Hyperlinks
+- https://getfedora.org/
+- https://docs.fedoraproject.org/en-US/quick-docs/
+- https://rpmfusion.org/Configuration
