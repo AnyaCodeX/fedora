@@ -1,47 +1,38 @@
 ## Fedora Terminal Commands
 Some commands that i use for fedora installs on virtual machines.
 
-## update
+## uupdate / distro-sync / autoremove
 ```
 sudo dnf update
-sudo dnf autoremove
 sudo dnf distro-sync
+sudo dnf autoremove
+sudo dnf update --refresh && sudo dnf distro-sync --refresh
 ```
-## Tweeks for dnf.conf
+## dnf.conf
 ```
-echo 'max_parallel_downloads=10' | sudo tee -a /etc/dnf/dnf.conf
+echo 'max_parallel_downloads=6' | sudo tee -a /etc/dnf/dnf.conf
 echo 'fastestmirror=True' | sudo tee -a /etc/dnf/dnf.conf
 echo 'deltarpm=True' | sudo tee -a /etc/dnf/dnf.conf
-echo 'defaultyes=True' | sudo tee -a /etc/dnf/dnf.conf
+echo 'defaultyes=True' | sudo tee -a /etc/dnf/dnf.conf 
 ```
-## Enable RPM Fusion free and the nonfree repository
+## RPM Fusion free and nonfree repository & AppStream metadata
 ```
-sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf groupupdate core
 ```
-## Enable RPM Fusion AppStream metadata
-```
-sudo dnf group update core
-```
-## Enable Audio & Video Plugins
-```
-sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
-sudo dnf install lame\* --exclude=lame-devel
-```
-## Enable Flatpacks
+## Flatpacks
 ```
 sudo dnf install -y flatpak
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo 
 ```
-## sudo dnf remove
-```
-sudo dnf remove akregator bluedevil dragon elisa-player fedora-bookmarks kamoso kmahjongg kmail kmines konversation korganizer kpat krdc krfb kwrite libreoffice-core okular spectacle
-```
+## Fedora sudo dnf remove
 ```
 akregator - Feed Reader
 bluedevil - Bluetooth stack for KDE
 dragon - Media player
 elisa-player - Elisa music player
 fedora-bookmarks - Fedora bookmarks
+firefox - Mozilla Firefox Web browser
 kamoso - Application for taking pictures and videos from a webcam
 kmahjongg - A tile matching game
 kmail - Mail client
@@ -51,10 +42,18 @@ korganizer - Personal Organizer
 kpat - A selection of solitaire card games
 krdc - Remote desktop client
 krfb - Desktop sharing
-kwrite - Text Editor
 libreoffice-core - Core modules for LibreOffice
 okular - A document viewer
-spectacle - Screenshot capture utility
+spectacle - Screenshot capture utility 
+```
+### Nobara sudo dnf remove
+```
+bluedevil - Bluetooth stack for KDE
+elisa-player - Elisa music player
+firefox - Mozilla Firefox Web browser
+kamoso - Application for taking pictures and videos from a webcam
+okular - A document viewer
+spectacle - Screenshot capture utility 
 ```
 ### Hyperlinks
 - https://getfedora.org/
