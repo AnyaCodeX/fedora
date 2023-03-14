@@ -1,7 +1,7 @@
 ## Fedora Terminal Commands
 Some commands that i use for fedora installs on virtual machines.
 
-## uupdate / distro-sync / autoremove
+## update / distro-sync / autoremove
 ```
 sudo dnf update
 sudo dnf distro-sync
