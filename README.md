@@ -1,31 +1,30 @@
 ## Fedora Terminal Commands
-Some commands that i use for fedora installs on virtual machines.
 
-## update / distro-sync / autoremove
+### update / distro-sync / autoremove
 ```
 sudo dnf update
 sudo dnf distro-sync
 sudo dnf autoremove
 sudo dnf update --refresh && sudo dnf distro-sync --refresh
 ```
-## dnf.conf
+### dnf.conf
 ```
 echo 'max_parallel_downloads=6' | sudo tee -a /etc/dnf/dnf.conf
 echo 'fastestmirror=True' | sudo tee -a /etc/dnf/dnf.conf
 echo 'deltarpm=True' | sudo tee -a /etc/dnf/dnf.conf
 echo 'defaultyes=True' | sudo tee -a /etc/dnf/dnf.conf 
 ```
-## RPM Fusion free and nonfree repository & AppStream metadata
+### RPM Fusion free and nonfree repository & AppStream metadata
 ```
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf groupupdate core
 ```
-## Flatpacks
+### Flatpacks
 ```
 sudo dnf install -y flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo 
 ```
-## Fedora sudo dnf remove
+### Fedora sudo dnf remove
 ```
 akregator - Feed Reader
 bluedevil - Bluetooth stack for KDE
